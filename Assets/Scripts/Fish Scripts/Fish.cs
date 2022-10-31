@@ -33,15 +33,13 @@ public class Fish : MonoBehaviour
     private void Awake()
     {
         coll = GetComponent<CircleCollider2D>();
-        rend = GetComponent<SpriteRenderer>();
-        screenLeft = Camera.main.ScreenToWorldPoint(Vector3.zero).x;
-
-        
+        rend = GetComponentInChildren<SpriteRenderer>();
+        screenLeft = Camera.main.ScreenToWorldPoint(Vector3.zero).x;        
     }
 
     private void Update()
     {
-        ResetFish();
+        
     }
 
     public void ResetFish()
