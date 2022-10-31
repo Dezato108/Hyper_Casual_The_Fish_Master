@@ -3148,6 +3148,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2025167379}
   - component: {fileID: 2025167378}
+  - component: {fileID: 2025167380}
+  - component: {fileID: 2025167381}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -3243,6 +3245,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2025167380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025167377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef6037962b683d347bbfa93334bf13c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  length: 0
+  strength: 0
+  offlineEarnings: 0
+  lengthCost: 0
+  strengthCost: 0
+  offlineEarningsCost: 0
+  wallet: 0
+  totalGain: 0
+--- !u!114 &2025167381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025167377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81a574200ba2354d848c40741589033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endScreen: {fileID: 0}
+  gameScreen: {fileID: 0}
+  mainScreen: {fileID: 0}
+  returnScreen: {fileID: 0}
+  lengthButton: {fileID: 0}
+  strengthButton: {fileID: 0}
+  offlineButton: {fileID: 0}
+  gameScreenMoney: {fileID: 0}
+  lengthCostText: {fileID: 0}
+  lengthValueText: {fileID: 0}
+  strengthCostText: {fileID: 0}
+  strengthValueText: {fileID: 0}
+  offlineCostText: {fileID: 0}
+  offlineValueText: {fileID: 0}
+  endScreenMoney: {fileID: 0}
+  returnScreenMoney: {fileID: 0}
 --- !u!1 &2056319041
 GameObject:
   m_ObjectHideFlags: 0
