@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 public class Hook : MonoBehaviour
@@ -17,21 +18,19 @@ public class Hook : MonoBehaviour
 
     private bool canMove;
 
-    //List of fishes
+    private List<Fish> hookedFishes;
 
     private Tweener cameraTween;
+
+    [Header("Start Button")]
+    [SerializeField] Button startButton;
 
     private void Awake()
     {
         mainCamera = Camera.main;
         coll = GetComponent<Collider2D>();
-        //List of fishes
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        hookedFishes = new List<Fish>();
+    }    
 
     // Update is called once per frame
     void Update()
@@ -45,8 +44,11 @@ public class Hook : MonoBehaviour
         }
     }
 
+    
+
     public void StartFishing()
     {
+        startButton.gameObject.SetActive(false);
         length = -50; //IdleManager
         strength = 3; //IdleManager
         fishCount = 0;
@@ -72,7 +74,9 @@ public class Hook : MonoBehaviour
         //Screen(GAME)
         coll.enabled = false;
         canMove = true;
-        //Clear the hook
+        hookedFishes.Clear();
+
+        
     }
 
     void StopFishing()
@@ -91,9 +95,43 @@ public class Hook : MonoBehaviour
             transform.position = Vector2.down * 6;
             coll.enabled = true;
             int num = 0;
-            //Clear out the hook from the fishes
+            for (int i = 0; i < hookedFishes.Count; i++)
+            {
+                hookedFishes[i].transform.SetParent(null);
+                hookedFishes[i].ResetFish();
+                num += hookedFishes[i].Type.price;
+            }
             //IdleManager Totalgain = num
             //SceneManager End Screen
         });
+
+        startButton.gameObject.SetActive(true);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fish") && fishCount!=strength)
+        {
+            fishCount++;
+            Fish component = collision.GetComponent<Fish>();
+            component.Hooked();
+            hookedFishes.Add(component);
+            collision.transform.SetParent(transform);
+            collision.transform.position = hookTransform.position;
+            collision.transform.rotation = hookTransform.rotation;
+            collision.transform.localScale = Vector3.one;
+
+            collision.transform.DOShakeRotation(5, Vector3.forward * 45, 10, 90, false).SetLoops(1, LoopType.Yoyo).OnComplete(delegate
+            {
+                collision.transform.rotation = Quaternion.identity;
+            });
+
+            if (fishCount == strength)
+            {
+                StopFishing();
+            }
+        }
+    }
+
+    
 }

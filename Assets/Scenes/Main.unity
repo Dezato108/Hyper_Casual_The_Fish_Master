@@ -378,7 +378,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654353255}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -5.5, z: 0}
+  m_LocalPosition: {x: 0.256, y: -5.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1565778894}
@@ -846,7 +846,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.15, y: -5.3}
@@ -864,10 +864,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac68afa62d0d4ec449a6363d908c6760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hookTransform: {fileID: 0}
+  hookTransform: {fileID: 654353256}
   length: 0
   strength: 0
   fishCount: 0
+  startButton: {fileID: 1529726828}
 --- !u!1 &1582842507
 GameObject:
   m_ObjectHideFlags: 0
