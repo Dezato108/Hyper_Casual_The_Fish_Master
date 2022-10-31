@@ -22,7 +22,7 @@ public class Hook : MonoBehaviour
 
     private Tweener cameraTween;
 
-    [Header("Start Button")]
+    [Header("Start Fishing Button")]
     [SerializeField] Button startButton;
 
     private void Awake()
